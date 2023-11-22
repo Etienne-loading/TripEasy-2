@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blog');
+const config = require('./config')
 const app = express();
 
-mongoose.connect('mongodb+srv://LearningUser_6:passwordforlearning@cluster0.by3x9wr.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(config.mongoURI,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
